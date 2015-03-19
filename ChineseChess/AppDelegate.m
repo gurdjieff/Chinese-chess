@@ -10,6 +10,8 @@
 
 #import "AppDelegate.h"
 #import "IntroLayer.h"
+#import "GameScene.h"
+
 
 @implementation AppController
 
@@ -35,7 +37,7 @@
 	director_.wantsFullScreenLayout = YES;
 
 	// Display FSP and SPF
-	[director_ setDisplayStats:YES];
+//	[director_ setDisplayStats:YES];
 
 	// set FPS at 60
 	[director_ setAnimationInterval:1.0/60];
@@ -73,7 +75,7 @@
 	[CCTexture2D PVRImagesHavePremultipliedAlpha:YES];
 
 	// and add the scene to the stack. The director will run it when it automatically when the view is displayed.
-	[director_ pushScene: [IntroLayer scene]]; 
+	[director_ pushScene: [IntroLayer scene]];
 
 	
 	// Create a Navigation Controller with the Director
@@ -93,7 +95,9 @@
 // Supported orientations: Landscape. Customize it for your own needs
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-	return UIInterfaceOrientationIsLandscape(interfaceOrientation);
+//	return UIInterfaceOrientationIsLandscape(interfaceOrientation);
+    return NO;
+
 }
 
 
@@ -102,6 +106,10 @@
 {
 	if( [navController_ visibleViewController] == director_ )
 		[director_ pause];
+}
+
+- (BOOL) shouldAutorotate {
+    return NO;
 }
 
 // call got rejected
